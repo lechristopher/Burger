@@ -28,7 +28,7 @@ function objToSql(ob) {
 // Object for all our SQL statement functions.
 var orm = {
   all: function(tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+    var queryString = "SELECT * FROM " + tableInput;
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -73,20 +73,7 @@ var orm = {
       cb(result);
     });
   },
-  delete: function(table, condition, cb) {
-    var queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
-
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
-      cb(result);
-    });
-  }
 };
 
-// Export the orm object for the model (cat.js).
+// Export the orm object for the model (burger.js).
 module.exports = orm;
